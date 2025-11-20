@@ -8,8 +8,6 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-
-    box-sizing: border-box;
 }
 .container {
     background: #614848;
@@ -17,9 +15,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     text-align: center;
-
     width: 350px;
-    max-width: 350px;
 }
 
 
@@ -29,8 +25,6 @@ body {
     text-shadow: 2px 2px 8px black;
     margin-top: -13px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-    word-wrap: break-word;
 }
 
 .menu-box {
@@ -82,8 +76,6 @@ body {
     background: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
-
-    padding: 10px;
 }
 
 .popup-content {
@@ -91,10 +83,9 @@ body {
     color: black;
     padding: 30px;
     border-radius: 10px;
-    width: 90%;
+    width: 80%;
     max-width: 350px;
     text-align: center;
-
 }
 
 .popup-btn {
@@ -108,25 +99,4 @@ body {
 }
 .popup-btn:hover {
     background: #0056b3;
-}
-
-
-/* Responsive Media Queries */
-@media (max-width: 600px) {
-    .title {
-        font-size: 18px;  /* smaller font for mobile */
-    }
-
-    .btn {
-        padding: 12px 20px;  /* smaller button padding */
-        font-size: 16px;
-    }
-
-    .container {
-        padding: 20px 15px;  /* less padding on small screens */
-    }
-
-    .popup-content {
-        padding: 15px;
-    }
 }

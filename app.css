@@ -4,8 +4,8 @@ body{
 }
 #homeArrow {
     position: fixed;
-    top: 35px;
-    left: 95px;
+    top: 5%;
+    left: 5%;
     padding: 8px 15px;
     font-size: 40px;
     font-weight: bold;
@@ -13,8 +13,8 @@ body{
 }
 .start-btn {
     position: fixed;
-    top: 55px;
-    right: 105px;
+    top: 7%;
+    right: 7%;
     background: #28a745;
     color: white;
     font-size: 18px;
@@ -70,14 +70,14 @@ h4{
 }
 
 h1{
-    margin: 3px;
+    margin: 0px;
     font-size: 80px;
     color: rgb(197, 202, 212);
     font-family: Gabriola;
     font-style: italic;
 }
 h2{
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 500;
     margin: 0%;
     color: aliceblue;
@@ -90,7 +90,7 @@ h2{
     text-align: center;
     margin:  12px;
     border-radius: 20%;
-    
+    cursor: pointer;
 }
 .cont{
     justify-content: center;
@@ -137,5 +137,3 @@ h2{
     transition: transform 0.15s ease, box-shadow 0.35s ease;
     background-color: rgb(248, 210, 94);
 }
-
-
