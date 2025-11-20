@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(1350deg, #1d2671, #c33764);
+
+.home { background-color: #2980b9; color: white,#27ae60; }
+    background: #f8d7da#27ae60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background: #8a2727;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    width: 350px;
+}
+
+h1 {
+    color: #f81e06;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #f8d7da;
+}
+
+.btn {
+    /* padding: 12px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; */
+
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 200px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Reset Max Score Button */
+.reset-score {
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 200px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+/* Hover Effect */
+/* .reset-score:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+} */
+
+
+
+
+.play-again { background-color: #27ae60; color: white; }
+.exit { background-color: #c0392b; color: white; }
+.home { background-color: #2980b9; color: white; }

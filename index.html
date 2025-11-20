@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game - Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">🎮</h1>
+        <h1 class="title">Simon Game</h1>
+
+        <div class="menu-box">
+            <button id="startBtn" class="btn start">Start Game</button>
+            <button id="rulesBtn" class="btn rules">Game Rules</button>
+            <button id="exitBtn" class="btn exit">Exit Game</button>
+        </div>
+    </div>
+
+    <!-- Game Rules Popup -->
+    <div id="rulesPopup" class="popup">
+        <div class="popup-content">
+            <h2>Game Rules</h2>
+            <p>• System ek pattern show karega.<br>
+            • Aapko wahi pattern repeat karna hai.<br>
+            • Har level ke sath pattern lamba hota jayega.<br>
+            • Galti karte hi Game Over!</p>
+
+            <button id="closePopup" class="popup-btn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("startBtn").onclick = function() {
+            window.location.href = "app.html"; 
+        };
+
+        document.getElementById("rulesBtn").onclick = function() {
+            document.getElementById("rulesPopup").style.display = "flex";
+        };
+
+        document.getElementById("closePopup").onclick = function() {
+            document.getElementById("rulesPopup").style.display = "none";
+        };
+
+        document.getElementById("exitBtn").onclick = function() {
+            if (confirm("Exit the game?")) {
+                document.body.innerHTML =
+                    "<h1 style='text-align:center; color:red; margin-top:40px;'>Game Closed!</h1>";
+            }
+        };
+    </script>
+
+</body>
+</html>

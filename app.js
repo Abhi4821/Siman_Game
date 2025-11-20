@@ -3,55 +3,56 @@ let userSeq=[];
 let started=false;
 let Level=0;
 let highScore=0;
+let restart=0
+
 
 //store color for selecting
 let btns=["red","green","yellow","purple"];
 let h2=document.querySelector("h2")
 let h4=document.querySelector("h4")
-//const s =prompt("Enter Your Name")
+let startBtn=document.querySelector("#startGameBtn")
+
+
+let btn_click_voice=new Audio("voice/any_btn_click.mp3");
+let game_start_sound = new Audio("voice/game_starte_voice.mp3");
+let system_click_sound = new Audio("voice/system_Click.mp3");
+let player_click_sound = new Audio("voice/player_click.mp3");
+
+
+
+//code entry point
 start()
+
+
+
 function start(){
+    // Reset game
     started=false;
     gameSeq=[];
     userSeq=[];
     Level=0;
-    
-    h2.innerText="Please Enter Any Key to start your game !"
-    document.addEventListener("keypress",function(){
-        //check game start or not
+
+    highScore = localStorage.getItem('highScore') || 0;    
+    h2.innerText=""
+    startBtn.addEventListener("click",function(){
         if(started==false){
+            game_start_sound.currentTime = 0; // agar repeat ho to sound reset 
+            game_start_sound.play();
+            // btn_click_voice.play();
+
             started=true
-            h4.innerText=""
-            setTimeout(function(){
-                document.querySelector("body").style.backgroundColor="white"
-            },121)
-            h4.innerText=" Your game is now in full swing and running seamlessly."
-            levelUp()
             
+
+            setTimeout(function(){
+            document.querySelector("body").style.background="green"
+            },50)
+
+            h4.innerText="!Game Play!"
+            levelUp()
         }
-    })
+    },2000)
 }
 
-
-
-
-//function for flace button autometic
-function gameflace(ranbtn){
-    ranbtn.classList.add("gameflaceClass")        // make flace class
-    setTimeout(function(){
-        ranbtn.classList.remove("gameflaceClass") //delete flace class after few second
-    },100)
-}
-
-
-
-//function for flace button when user press button
-function userflace(userbtn){
-    userbtn.classList.add("userflaceClass")        // make flace class
-    setTimeout(function(){
-        userbtn.classList.remove("userflaceClass") //delete flace class after few second
-    },100)
-}
 
 //Function for level ups
 function levelUp(){
@@ -63,24 +64,81 @@ function levelUp(){
     let ranIndex=Math.floor(Math.random()*4);           //select index  0,1,2,3 random  
     let ranColor=btns[ranIndex];                        //select colore  from btns array by ranIndex
     let ranBtn=document.querySelector(`.${ranColor}`)   //Select class for given colore from html file
-    gameSeq.push(ranColor)
-    console.log(gameSeq)                              //After trigger  buttton add color inside gameSeq array 
+    gameSeq.push(ranColor)                              //After trigger  buttton add color inside gameSeq array 
     gameflace(ranBtn);                                   //Call function for flace button after click
 }
 
 
+//function for flace button autometic
+function gameflace(ranbtn){
+    setTimeout(function(){
+        if(started==true){
+            ranbtn.classList.add("system-flash");  //apply  property from css
+            system_click_sound.currentTime = 0; // If repeat then restart voice
+            system_click_sound.play(); 
+            
+            setTimeout(function(){
+                ranbtn.classList.remove("system-flash");    //delete flace class after few second
+            },500)
+       }
+    },800)
+}
+
+
+//Listen box click if click then call btnPress function
+let allBtn=document.querySelectorAll(".box")
+for(bton of allBtn){
+    bton.addEventListener("click",btnPress)
+}
+
+
+//trak button
+function btnPress(){                                 
+    let btn=this
+    userflace(btn)
+    console.log(userSeq)
+    usercolor=btn.getAttribute("id")
+    userSeq.push(usercolor)
+    console.log(userSeq)
+
+    // Check user all button clicked or not
+    if(userSeq.length-1==gameSeq.length-1){
+        compair(gameSeq.length)
+    }else{
+        btnPress
+    } 
+}
+
+
+//function for flace button when user press button
+function userflace(userbtn){
+    if(started==true){
+        userbtn.classList.add("player-clicked");   // shrink effect
+        // Play user sound
+        player_click_sound.currentTime = 0;
+        player_click_sound.play();
+        setTimeout(function(){
+           userbtn.classList.remove("player-clicked");
+        },500)
+    }   
+}
+
 
 
 function  compair(len){
-    for(let i=0;i<=len;i++){
+    for(let i=0;i<len;i++){
         if(gameSeq[i]==userSeq[i]){
         }else{
-            document.querySelector("body").style.backgroundColor="salmon"
-            
-            
-            h4.innerText=`Your Score : ${Level}`
-            h2.innerText=`Game Over ||  Enter any key for new game `
-            start()
+            // Update maxScore
+            if(Level > highScore) {
+                localStorage.setItem('highScore', Level);
+                highScore = Level;
+            }
+            // Show game over State
+            h4.innerText = `Your Score: ${Level}`;
+            h2.innerText = `Game Over!`;
+            started = false;
+            window.location.href = `gameover.html?score=${Level}&max-score=${highScore}`;
             return 0;
         }
     }
@@ -88,25 +146,8 @@ setTimeout(levelUp,1000)
 }
 
 
-
-
-function btnPress(){                                 //trak button
-    let btn=this
-    userflace(btn)
-    console.log(userSeq)
-    usercolor=btn.getAttribute("id")
-    userSeq.push(usercolor)
-    //console.log(userSeq)
-    if(userSeq.length-1==gameSeq.length-1){
-        compair(gameSeq.length)
-
-    }else{
-        btnPress
-    } 
-}
-
-
-let allBtn=document.querySelectorAll(".box")
-for(bton of allBtn){
-    bton.addEventListener("click",btnPress)
-}
+// Go to home button
+document.getElementById("homeArrow")
+homeArrow.onclick = function () {
+    window.location.href = "index.html";
+};

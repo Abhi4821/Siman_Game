@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="gameover.css">
+</head>
+<body>
+    <div class="container">
+        <button class="btn reset-score" id="resetMaxScoreBtn">Reset Max Score</button>
+        <h1>Game Over!</h1>
+        <p id="score">Your Score: 0</p>
+        <p id="max-Score">Max Score: 0</p>
+
+        <button class="btn play-again" id="playAgainBtn">Play Again</button>
+        <button class="btn exit" id="exitBtn">Exit Game</button>
+        <button class="btn home" id="homeBtn">Go to Home</button>
+    </div>
+    
+    <script>
+        let game_end_sound = new Audio("voice/game_end_voice.mp3");
+        game_end_sound.currentTime = 0;
+        game_end_sound.play();
+        // URL parameters se score lena
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+        const maxScore = urlParams.get('max-score');
+        
+        
+        
+
+
+
+// Play Again Button
+        document.getElementById('playAgainBtn').onclick = function() {
+            let userChoice = confirm("Play Again ?");
+            if (userChoice) {
+                // OK dabaya
+                 window.location.href = "app.html";
+              }
+        }
+
+// Go To Home
+        document.getElementById('homeBtn').onclick = function() {
+            let userChoice = confirm("Go to home !");
+            if (userChoice) {
+                // OK dabaya
+                 window.location.href = "index.html";
+            }
+        }
+
+//Stop Game
+        document.getElementById('exitBtn').onclick = function() {
+            let userChoice = confirm("Close Game !");
+            if (userChoice) {
+                // OK dabaya
+               document.getElementById('exitBtn').onclick = function() {
+                    document.body.style.background = "linear-gradient(135deg, #1d2671, #c33764)";
+                    document.body.style.color = "white";
+                    // Content update karo
+                    document.body.innerHTML = "<h1>Game End!</h1>";
+                }
+            }
+        }
+
+        
+        document.getElementById('max-Score').innerText = `Max Score: ${maxScore}`;
+        document.getElementById('score').innerText = `Your Score: ${score}`;
+
+        document.getElementById("resetMaxScoreBtn").onclick = function () {
+            let userChoice = confirm("Max Score reset to 0 !");
+            if(userChoice){
+                localStorage.setItem('highScore', 0);   // ✔ Max Score reset
+                // Screen par update bhi kar do
+                document.getElementById('max-Score').innerText = "Max Score: 0";
+            }
+        };
+
+    </script>
+</body>
+</html>

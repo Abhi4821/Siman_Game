@@ -1,17 +1,65 @@
 body{
     text-align: center;
-    background-color: rgba(218, 165, 32, 0.481);
+    background-color: #101010;
 }
+#homeArrow {
+    position: fixed;
+    top: 35px;
+    left: 95px;
+    padding: 8px 15px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.start-btn {
+    position: fixed;
+    top: 55px;
+    right: 105px;
+    background: #28a745;
+    color: white;
+    font-size: 18px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    transition: 0.2s ease;
+}
+
+.start-btn:hover {
+    background: #1f7e34;
+    transform: scale(1.08);
+}
+
+.top-btn {
+    padding: 10px 20px;
+    margin: 8px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+}
+
+.top-btn:hover {
+    background: #3e8e41;
+    transform: scale(1.05);
+}
+
+
+
 #BIGBOX{
-    width: 80%;
+    width: 90%;
     height: 95%;
+    margin-top: 10px;
     border: 5px solid black;
     display: inline-block;
-    background-color: #404040;
-    border-radius: 1%;
-    box-shadow: 2px 2px 20px 2px rgb(191, 233, 5);
-
-    
+    background-color:hsl(255, 48%, 29%);
+    border-radius: 5%;
+    box-shadow: 1px 1px 20px 1px rgb(232, 233, 228);
     align-items: center;
 }
 h4{
@@ -24,19 +72,25 @@ h4{
 h1{
     margin: 5px;
     font-size: 80px;
+    color: rgb(197, 202, 212);
+    font-family: Gabriola;
+    font-style: italic;
 }
 h2{
     font-size: 40px;
     font-weight: 500;
     margin: 0%;
+    color: aliceblue;
+    text-decoration-color: #eae6e6;
 }
 .box{
-    border: 10px solid black;
+    border: 20px solid black;
     width: 150px;
     height: 150px;
     text-align: center;
     margin:  12px;
     border-radius: 20%;
+    cursor: pointer;
 }
 .cont{
     justify-content: center;
@@ -44,22 +98,44 @@ h2{
 }
 
 .red{
-    background-color: rgb(235, 94, 94);
+    background-color: rgb(235, 13, 13) ;
+    /* rgb(235, 13, 13) */
+    box-shadow: 0px 4px 10px #eae6e6;
 }
 .yellow{
-    background-color: rgb(212, 150, 26);
+    background-color: rgb(244, 164, 6);
+    box-shadow: 0px 4px 10px #eae6e6;
+
 }
 .green{
-    background-color: rgb(22, 225, 202);
+    background-color: #049306;
+    box-shadow: 0px 4px 10px #eae6e6;
+
 }
 .purple{
-    background-color: rgb(103, 132, 219);
+    background-color: rgb(6, 44, 158);
+    box-shadow: 0px 4px 10px #eae6e6;
 }
 
-.gameflaceClass{
+
+
+
+
+
+
+
+/* Click effect */
+.player-clicked {
+    background-color: lab(95.89% -1.52 1.08);
+    transform: scale(0.5);       /*Button be small (50% of original size) */
+} 
+
+/* System click flash  */
+.system-flash {
+    box-shadow: 0 0 20px 5px #fff;  /* glowing white shadow */
+    transform: scale(1.25);         /* slightly enlarge for effect */
+    transition: transform 0.15s ease, box-shadow 0.35s ease;
     background-color: rgb(248, 210, 94);
 }
-.userflaceClass{
 
-    background-color: green;
-}
+
