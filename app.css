@@ -1,11 +1,6 @@
 body{
     text-align: center;
     background-color: #101010;
-
-
-    margin: 0;
-    padding: 0;
-    padding: 0;box-sizing: border-box;
 }
 #homeArrow {
     position: fixed;
@@ -66,10 +61,6 @@ body{
     border-radius: 5%;
     box-shadow: 1px 1px 20px 1px rgb(232, 233, 228);
     align-items: center;
-
-    max-width: 500px;
-    padding: 10px;
-    height: auto;  
 }
 h4{
     font-size: 36px;
@@ -79,14 +70,14 @@ h4{
 }
 
 h1{
-    margin: 5px;
-    font-size: 50px;
+    margin: 3px;
+    font-size: 80px;
     color: rgb(197, 202, 212);
     font-family: Gabriola;
     font-style: italic;
 }
 h2{
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 500;
     margin: 0%;
     color: aliceblue;
@@ -99,13 +90,11 @@ h2{
     text-align: center;
     margin:  12px;
     border-radius: 20%;
-    cursor: pointer;
+    
 }
 .cont{
     justify-content: center;
     display: flex;
-
-    flex-wrap: wrap; 
 }
 
 .red{
@@ -150,32 +139,3 @@ h2{
 }
 
 
-/* Responsive Media Queries */
-@media (max-width: 600px){
-    h1{
-        font-size: 40px;
-    }
-    h2{
-        font-size: 20px;
-    }
-    h4{
-        font-size: 28px;
-    }
-    .box{
-        width: 80px;
-        height: 80px;
-        margin: 8px;
-    }
-    #homeArrow{
-        font-size: 30px;
-        top: 5px;
-        left: 5px;
-        padding: 6px 10px;
-    }
-    .start-btn{
-        font-size: 14px;
-        padding: 8px 15px;
-        top: 5px;
-        right: 5px;
-    }
-}

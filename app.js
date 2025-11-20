@@ -47,7 +47,7 @@ function start(){
             document.querySelector("body").style.background="green"
             },50)
 
-            h4.innerText="!Game Play!"
+            h4.innerText="Game Play"
             levelUp()
         }
     },2000)
