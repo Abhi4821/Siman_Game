@@ -33,7 +33,11 @@
     </div>
 
     <script>
+        let btn_click_voice1=new Audio("voice/any_btn_click.mp3");
+
         document.getElementById("startBtn").onclick = function() {
+                btn_click_voice1.play();
+
             window.location.href = "app.html"; 
         };
 

@@ -41,8 +41,6 @@ function start(){
             // btn_click_voice.play();
 
             started=true
-            
-
             setTimeout(function(){
             document.querySelector("body").style.background="green"
             },50)
@@ -149,5 +147,6 @@ setTimeout(levelUp,1000)
 // Go to home button
 document.getElementById("homeArrow")
 homeArrow.onclick = function () {
+    btn_click_voice.play();
     window.location.href = "index.html";
 };

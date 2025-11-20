@@ -19,9 +19,14 @@
     </div>
     
     <script>
+        let btn_click_voice=new Audio("voice/any_btn_click.mp3");
         let game_end_sound = new Audio("voice/game_end_voice.mp3");
+
         game_end_sound.currentTime = 0;
         game_end_sound.play();
+
+        btn_click_voice.currentTime = 0;
+        btn_click_voice.play();
         // URL parameters se score lena
         const urlParams = new URLSearchParams(window.location.search);
         const score = urlParams.get('score');
@@ -34,15 +39,17 @@
 
 // Play Again Button
         document.getElementById('playAgainBtn').onclick = function() {
+            btn_click_voice.play();
             let userChoice = confirm("Play Again ?");
             if (userChoice) {
                 // OK dabaya
                  window.location.href = "app.html";
-              }
+            }
         }
 
 // Go To Home
         document.getElementById('homeBtn').onclick = function() {
+            btn_click_voice.play();
             let userChoice = confirm("Go to home !");
             if (userChoice) {
                 // OK dabaya
@@ -52,6 +59,7 @@
 
 //Stop Game
         document.getElementById('exitBtn').onclick = function() {
+            btn_click_voice.play();
             let userChoice = confirm("Close Game !");
             if (userChoice) {
                 // OK dabaya
@@ -69,6 +77,7 @@
         document.getElementById('score').innerText = `Your Score: ${score}`;
 
         document.getElementById("resetMaxScoreBtn").onclick = function () {
+            btn_click_voice.play();
             let userChoice = confirm("Max Score reset to 0 !");
             if(userChoice){
                 localStorage.setItem('highScore', 0);   // ✔ Max Score reset
